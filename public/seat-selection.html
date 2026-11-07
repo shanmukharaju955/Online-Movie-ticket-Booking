@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Seats – SHANMUKHA CINEVERSE</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-film"></i>
+        <span>SHANMUKHA</span> CINEVERSE
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="movies.html" class="nav-link">Movies</a></li>
+        <li><a href="theatres.html" class="nav-link">Theatres</a></li>
+        <li><a href="my-bookings.html" class="nav-link">My Bookings</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Seat Selection Header & Layout -->
+  <section style="padding: 40px 0 80px;">
+    <div class="container">
+      
+      <!-- Show Header Details -->
+      <div style="margin-bottom: 30px; text-align: center;">
+        <h1 id="seat-movie-title" style="font-size: 2.2rem; margin-bottom: 8px;">Loading Show...</h1>
+        <div id="seat-show-meta" style="display: flex; justify-content: center; align-items: center; gap: 16px; color: var(--text-secondary); font-size: 0.95rem; flex-wrap: wrap;">
+          <!-- Injected via seats.js -->
+        </div>
+      </div>
+
+      <!-- Cinema Hall Interactive Wrapper -->
+      <div class="cinema-hall-wrapper">
+        <!-- Curved Cinema Screen -->
+        <div class="cinema-screen-container">
+          <div class="cinema-screen"></div>
+          <div class="screen-text">ALL EYES THIS WAY • CINEMA SCREEN</div>
+        </div>
+
+        <!-- Seat Color Legend -->
+        <div class="seat-legend">
+          <div class="legend-item">
+            <div class="legend-seat available"></div>
+            <span>Available ($)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-seat vip"></div>
+            <span>VIP (+25%)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-seat selected"></div>
+            <span>Selected</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-seat booked"></div>
+            <span>Booked (Unavailable)</span>
+          </div>
+        </div>
+
+        <!-- Interactive Grid generated via seats.js -->
+        <div id="cinema-hall-grid">
+          <!-- Dynamic seat rows A through H -->
+        </div>
+      </div>
+
+      <!-- Live Booking Summary Bar -->
+      <div class="booking-summary-bar">
+        <div class="summary-details">
+          <div class="summary-col">
+            <h4>Tickets</h4>
+            <p><span id="selected-seats-count">0</span> Seats</p>
+          </div>
+          <div class="summary-col">
+            <h4>Selected Seats</h4>
+            <p id="selected-seats-list" style="color: var(--accent-violet);">None</p>
+          </div>
+          <div class="summary-col">
+            <h4>Total Payable</h4>
+            <p class="total-price-tag" id="total-booking-price">$0.00</p>
+          </div>
+        </div>
+
+        <div>
+          <button id="confirm-booking-btn" class="btn btn-cinema btn-lg" disabled style="opacity: 0.5;">
+            <i class="fa-solid fa-check"></i> Proceed to Confirm Booking
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none;">
+        <div>&copy; 2026 SHANMUKHA CINEVERSE Inc. Designed & Developed by Shanmukha Raju. All rights reserved.</div>
+        <div>Protected with MySQL Database Transactions against double-booking</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/seats.js"></script>
+</body>
+</html>

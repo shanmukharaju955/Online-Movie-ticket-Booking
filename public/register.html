@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account – SHANMUKHA CINEVERSE</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-film"></i>
+        <span>SHANMUKHA</span> CINEVERSE
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="movies.html" class="nav-link">Movies</a></li>
+        <li><a href="theatres.html" class="nav-link">Theatres</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Register Form Container -->
+  <div class="auth-wrapper">
+    <div class="auth-card" style="max-width: 500px;">
+      <div class="auth-header">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(244, 63, 94, 0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--accent-red); font-size: 1.4rem;">
+          <i class="fa-solid fa-user-plus"></i>
+        </div>
+        <h2>Join SHANMUKHA CINEVERSE</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">Create your profile for easy seat reservations & fast ticketing</p>
+      </div>
+
+      <form id="register-form">
+        <div class="form-group">
+          <label class="form-label" for="reg-name">Full Name</label>
+          <input type="text" id="reg-name" class="form-input" placeholder="e.g. Johnathan Doe" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-email">Email Address</label>
+          <input type="email" id="reg-email" class="form-input" placeholder="john@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-phone">Phone Number (Optional)</label>
+          <input type="tel" id="reg-phone" class="form-input" placeholder="+1 555-0199" autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-password">Password (min 6 characters)</label>
+          <input type="password" id="reg-password" class="form-input" placeholder="••••••••" required minlength="6" autocomplete="new-password">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-confirm-password">Confirm Password</label>
+          <input type="password" id="reg-confirm-password" class="form-input" placeholder="••••••••" required minlength="6" autocomplete="new-password">
+        </div>
+
+        <button type="submit" id="register-submit-btn" class="btn btn-cinema btn-block btn-lg" style="margin-top: 10px;">
+          <i class="fa-solid fa-user-plus"></i> Create Account
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 24px; color: var(--text-secondary); font-size: 0.9rem;">
+        Already have an account? 
+        <a href="login.html" style="color: var(--accent-violet); font-weight: 600;">Sign in here</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

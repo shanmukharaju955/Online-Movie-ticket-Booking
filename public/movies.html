@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Movies – SHANMUKHA CINEVERSE</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-film"></i>
+        <span>SHANMUKHA</span> CINEVERSE
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="movies.html" class="nav-link active">Movies</a></li>
+        <li><a href="theatres.html" class="nav-link">Theatres</a></li>
+        <li><a href="my-bookings.html" class="nav-link">My Bookings</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- City Location Selector -->
+        <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius-full); padding:6px 14px;">
+          <i class="fa-solid fa-location-dot" style="color:var(--accent-red); font-size:0.85rem;"></i>
+          <select id="navbar-city-select" onchange="setCity(this.value)" style="background:transparent; color:#fff; border:none; font-size:0.85rem; font-weight:600; cursor:pointer;">
+            <option value="All" style="background:#181C28;">All Cities</option>
+            <option value="Hyderabad" style="background:#181C28;">Hyderabad</option>
+            <option value="Kurnool" style="background:#181C28;">Kurnool</option>
+          </select>
+        </div>
+
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section style="padding: 40px 0 20px;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Explore <span>Movies</span></h1>
+          <p class="section-subtitle" id="movies-count-display">Discover the best blockbusters, re-releases and premieres</p>
+        </div>
+      </div>
+
+      <!-- Genre Pills Filter Bar -->
+      <div class="genre-pills" id="genre-pills-container">
+        <button class="genre-pill active" data-genre="All" onclick="resetFilters()">All Genres</button>
+        <!-- Populated dynamically via movies.js -->
+      </div>
+
+      <!-- Search, Language & Sort Filter Bar -->
+      <div class="filter-bar">
+        <div class="search-input-group">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="movie-search-input" class="search-input" placeholder="Search by title, actor, or genre...">
+        </div>
+
+        <div class="filter-controls">
+          <select id="language-filter" class="select-control">
+            <option value="All">All Languages</option>
+            <!-- Injected dynamically -->
+          </select>
+
+          <select id="sort-filter" class="select-control">
+            <option value="default">Sort: Featured</option>
+            <option value="rating_desc">Highest Rated</option>
+            <option value="release_desc">Newest Releases</option>
+            <option value="title_asc">Title (A - Z)</option>
+          </select>
+
+          <button class="btn btn-secondary btn-sm" onclick="resetFilters()" title="Reset Filters">
+            <i class="fa-solid fa-rotate-left"></i> Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Movies Grid Container -->
+      <div class="movies-grid" id="catalog-movies-grid">
+        <!-- Rendered dynamically from MySQL via movies.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <div>&copy; 2026 SHANMUKHA CINEVERSE Inc. Designed & Developed by Shanmukha Raju. All rights reserved.</div>
+        <div>Connected to MySQL Database: cineverse_db</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/movies.js"></script>
+</body>
+</html>

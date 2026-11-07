@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHANMUKHA CINEVERSE – Every Seat. Every Story. Every Experience.</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-film"></i>
+        <span>SHANMUKHA</span> CINEVERSE
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="movies.html" class="nav-link">Movies</a></li>
+        <li><a href="theatres.html" class="nav-link">Theatres</a></li>
+        <li><a href="my-bookings.html" class="nav-link">My Bookings</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- City Location Selector -->
+        <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius-full); padding:6px 14px;">
+          <i class="fa-solid fa-location-dot" style="color:var(--accent-red); font-size:0.85rem;"></i>
+          <select id="navbar-city-select" onchange="setCity(this.value)" style="background:transparent; color:#fff; border:none; font-size:0.85rem; font-weight:600; cursor:pointer;">
+            <option value="All" style="background:#181C28;">All Cities</option>
+            <option value="Hyderabad" style="background:#181C28;">Hyderabad</option>
+            <option value="Kurnool" style="background:#181C28;">Kurnool</option>
+          </select>
+        </div>
+
+        <!-- Injected via main.js based on auth state -->
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero" id="home-featured-hero">
+    <div class="hero-backdrop" id="hero-backdrop-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div>
+        <div class="hero-tag">
+          <i class="fa-solid fa-bolt"></i> FEATURED PREMIERE
+        </div>
+        <h1 class="hero-title" id="hero-title-text">Dune: Part Two</h1>
+        
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-star"></i>
+            <strong id="hero-rating-text">8.9</strong> / 10
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-masks-theater" style="color:var(--accent-violet);"></i>
+            <span id="hero-genre-text">Sci-Fi</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-clock" style="color:var(--text-muted);"></i>
+            <span id="hero-duration-text">166 mins</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-language" style="color:var(--accent-gold);"></i>
+            <span id="hero-language-text">English</span>
+          </div>
+        </div>
+
+        <p class="hero-synopsis" id="hero-synopsis-text">
+          Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he endeavors to prevent a terrible future.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#" id="hero-book-btn" class="btn btn-cinema btn-lg">
+            <i class="fa-solid fa-ticket"></i> Book Tickets Now
+          </a>
+          <button type="button" id="hero-trailer-btn" class="btn btn-outline btn-lg" style="display:none;">
+            <i class="fa-solid fa-circle-play" style="color:var(--accent-red);"></i> Watch Trailer
+          </button>
+          <a href="#" id="hero-details-btn" class="btn btn-secondary btn-lg">
+            <i class="fa-solid fa-circle-info"></i> View Details
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-poster-wrapper">
+        <div class="hero-poster-card">
+          <img id="hero-poster-img" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80" alt="Featured Poster">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Movies Section -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Trending <span>Movies</span></h2>
+          <p class="section-subtitle">The hottest cinematic spectacles taking box offices by storm</p>
+        </div>
+        <a href="movies.html?sort=rating_desc" class="btn btn-outline btn-sm">
+          View All Trending <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="movies-grid" id="home-trending-grid">
+        <!-- Rendered dynamically from MySQL via movies.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Now Showing Section -->
+  <section style="padding: 60px 0; background: rgba(17, 24, 39, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Now <span>Showing</span></h2>
+          <p class="section-subtitle">Current blockbusters playing across all partner theatres</p>
+        </div>
+        <a href="movies.html" class="btn btn-primary btn-sm">
+          Browse All Movies <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="movies-grid" id="home-nowshowing-grid">
+        <!-- Rendered dynamically from MySQL via movies.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Genres Section -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Explore by <span>Genre</span></h2>
+          <p class="section-subtitle">Find your next movie night experience by category</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+        <a href="movies.html?genre=Action" class="theatre-card" style="text-align: center; padding: 24px 16px; margin: 0;">
+          <i class="fa-solid fa-gun" style="font-size: 2rem; color: var(--accent-red); margin-bottom: 12px;"></i>
+          <h4 style="font-size: 1.1rem;">Action</h4>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">High-octane thrills</span>
+        </a>
+        <a href="movies.html?genre=Sci-Fi" class="theatre-card" style="text-align: center; padding: 24px 16px; margin: 0;">
+          <i class="fa-solid fa-shuttle-space" style="font-size: 2rem; color: var(--accent-violet); margin-bottom: 12px;"></i>
+          <h4 style="font-size: 1.1rem;">Sci-Fi</h4>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Future universes</span>
+        </a>
+        <a href="movies.html?genre=Drama" class="theatre-card" style="text-align: center; padding: 24px 16px; margin: 0;">
+          <i class="fa-solid fa-theater-masks" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 12px;"></i>
+          <h4 style="font-size: 1.1rem;">Drama</h4>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Deep narratives</span>
+        </a>
+        <a href="movies.html?genre=Animation" class="theatre-card" style="text-align: center; padding: 24px 16px; margin: 0;">
+          <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 2rem; color: var(--accent-green); margin-bottom: 12px;"></i>
+          <h4 style="font-size: 1.1rem;">Animation</h4>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Family & art</span>
+        </a>
+        <a href="movies.html?genre=Adventure" class="theatre-card" style="text-align: center; padding: 24px 16px; margin: 0;">
+          <i class="fa-solid fa-compass" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 12px;"></i>
+          <h4 style="font-size: 1.1rem;">Adventure</h4>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Epic journeys</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Theatres Section (Hyderabad & Kurnool) -->
+  <section style="padding: 60px 0; background: rgba(17, 24, 39, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Theatres in <span>Hyderabad & Kurnool</span></h2>
+          <p class="section-subtitle">Experience movies on the largest screens with industry-leading acoustics</p>
+        </div>
+        <a href="theatres.html" class="btn btn-outline btn-sm">
+          Explore All Theatres <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        <div class="theatre-card" style="margin: 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span class="badge badge-violet">📍 Hyderabad</span>
+            <span class="badge badge-green">PCX Large Screen</span>
+          </div>
+          <div class="theatre-name" style="margin-bottom: 8px;">
+            <i class="fa-solid fa-building-columns"></i> Prasads Multiplex & Large Screen
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 16px;">
+            Necklace Road, Hyderabad • Giant Screen • Dolby Atmos 4K
+          </p>
+          <a href="theatres.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-ticket"></i> View Shows</a>
+        </div>
+
+        <div class="theatre-card" style="margin: 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span class="badge badge-violet">📍 Hyderabad</span>
+            <span class="badge badge-gold">Superplex VIP</span>
+          </div>
+          <div class="theatre-name" style="margin-bottom: 8px;">
+            <i class="fa-solid fa-building-columns"></i> AMB Cinemas (Superplex)
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 16px;">
+            Gachibowli, Hyderabad • Laser Projection • Luxury Recliner Lounges
+          </p>
+          <a href="theatres.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-ticket"></i> View Shows</a>
+        </div>
+
+        <div class="theatre-card" style="margin: 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span class="badge badge-gold">📍 Kurnool</span>
+            <span class="badge badge-red">4K Laser Atmos</span>
+          </div>
+          <div class="theatre-name" style="margin-bottom: 8px;">
+            <i class="fa-solid fa-building-columns"></i> SVR Cinemas 4K Laser
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 16px;">
+            Kurnool • 4K Laser RGB Projection • Dolby Atmos Surround
+          </p>
+          <a href="theatres.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-ticket"></i> View Shows</a>
+        </div>
+
+        <div class="theatre-card" style="margin: 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span class="badge badge-gold">📍 Kurnool</span>
+            <span class="badge badge-violet">Dolby 7.1</span>
+          </div>
+          <div class="theatre-name" style="margin-bottom: 8px;">
+            <i class="fa-solid fa-building-columns"></i> Anand Complex Multiplex
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 16px;">
+            Kurnool • Multi-Screen Experience • Dolby Digital Sound
+          </p>
+          <a href="theatres.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-ticket"></i> View Shows</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon Section -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Coming <span>Soon</span></h2>
+          <p class="section-subtitle">Upcoming cinematic events releasing soon</p>
+        </div>
+      </div>
+
+      <div class="movies-grid" id="home-comingsoon-grid">
+        <!-- Rendered dynamically from MySQL via movies.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials Section -->
+  <section style="padding: 60px 0; background: rgba(17, 24, 39, 0.4);" id="about">
+    <div class="container">
+      <div class="section-header" style="justify-content: center; text-align: center;">
+        <div>
+          <h2 class="section-title">What Moviegoers <span>Say</span></h2>
+          <p class="section-subtitle">Real experiences from movie lovers using CINEVERSE</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 32px;">
+        <div class="theatre-card" style="margin: 0;">
+          <div style="color: var(--accent-gold); margin-bottom: 12px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+            "The real-time seat selector and instant QR ticket confirmation make booking seamless. Hands down the smoothest cinema booking platform I have ever used!"
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="user-avatar">A</div>
+            <div>
+              <strong>Alex Mercer</strong>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Verified Cineverse Member</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theatre-card" style="margin: 0;">
+          <div style="color: var(--accent-gold); margin-bottom: 12px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+            "Love the dark cinema theme and live seat availability! Booking IMAX 3D tickets took under thirty seconds and scanning at the theatre gate was instant."
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="user-avatar" style="background: linear-gradient(135deg, var(--accent-red), var(--accent-gold));">S</div>
+            <div>
+              <strong>Sophia Chen</strong>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Film Critic & Cinephile</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theatre-card" style="margin: 0;">
+          <div style="color: var(--accent-gold); margin-bottom: 12px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+            "The VIP seat tiering and dynamic pricing are incredible. No hidden fees, instant booking reference, and paperless digital pass right on my phone."
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="user-avatar" style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));">M</div>
+            <div>
+              <strong>Marcus Sterling</strong>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Cinema Enthusiast</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
+            <i class="fa-solid fa-film"></i>
+            <span>SHANMUKHA</span> CINEVERSE
+          </a>
+          <p>
+            "Every Seat. Every Story. Every Experience."<br>
+            Cineverse is the next-generation cinema ticketing ecosystem connecting film fans to state-of-the-art theatres.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="movies.html" class="footer-link">All Movies</a></li>
+            <li><a href="theatres.html" class="footer-link">Partner Theatres</a></li>
+            <li><a href="my-bookings.html" class="footer-link">My Bookings</a></li>
+            <li><a href="admin.html" class="footer-link">Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Genres</h4>
+          <ul class="footer-links">
+            <li><a href="movies.html?genre=Action" class="footer-link">Action</a></li>
+            <li><a href="movies.html?genre=Sci-Fi" class="footer-link">Sci-Fi</a></li>
+            <li><a href="movies.html?genre=Drama" class="footer-link">Drama</a></li>
+            <li><a href="movies.html?genre=Animation" class="footer-link">Animation</a></li>
+            <li><a href="movies.html?genre=Adventure" class="footer-link">Adventure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Support & Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Customer Help Center</a></li>
+            <li><a href="#" class="footer-link">Ticket Refund Policy</a></li>
+            <li><a href="#" class="footer-link">Terms of Service</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="mailto:support@cineverse.com" class="footer-link">support@cineverse.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 SHANMUKHA CINEVERSE Inc. Designed & Developed by Shanmukha Raju. All rights reserved.</div>
+        <div>Engineered with Node.js, Express.js & MySQL.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/movies.js"></script>
+</body>
+</html>

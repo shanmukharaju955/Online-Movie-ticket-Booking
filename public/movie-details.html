@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details – SHANMUKHA CINEVERSE</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-film"></i>
+        <span>SHANMUKHA</span> CINEVERSE
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="movies.html" class="nav-link active">Movies</a></li>
+        <li><a href="theatres.html" class="nav-link">Theatres</a></li>
+        <li><a href="my-bookings.html" class="nav-link">My Bookings</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Movie Details Hero -->
+  <section class="movie-details-hero">
+    <div class="movie-details-backdrop" id="details-backdrop"></div>
+    <div class="container" id="movie-details-content">
+      <div class="movie-details-grid">
+        <!-- Poster Column -->
+        <div>
+          <div class="movie-details-poster">
+            <img id="details-poster" src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=80" alt="Movie Poster">
+          </div>
+        </div>
+
+        <!-- Info Column -->
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <div class="badge badge-gold" style="font-size: 0.9rem;">
+              <i class="fa-solid fa-star"></i> <span id="details-rating">8.5</span> / 10
+            </div>
+            <span class="badge badge-violet" id="details-language">English</span>
+          </div>
+
+          <h1 id="details-title" style="font-size: 2.8rem; margin-bottom: 16px;">Loading Movie...</h1>
+
+          <div class="movie-meta-chips">
+            <div class="meta-chip">
+              <i class="fa-solid fa-masks-theater"></i>
+              <span id="details-genre">Action</span>
+            </div>
+            <div class="meta-chip">
+              <i class="fa-solid fa-clock"></i>
+              <span id="details-duration">120 min</span>
+            </div>
+            <div class="meta-chip">
+              <i class="fa-solid fa-calendar-day"></i>
+              <span id="details-release">2026</span>
+            </div>
+          </div>
+
+          <h3 style="font-size: 1.15rem; margin-bottom: 10px; color: var(--text-primary);">Synopsis</h3>
+          <p id="details-synopsis" style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; font-size: 1rem;">
+            Loading synopsis...
+          </p>
+
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 18px; margin-bottom: 30px;">
+            <div style="margin-bottom: 8px;">
+              <strong style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase;">Director:</strong>
+              <span id="details-director" style="color: #FFFFFF; font-weight: 600; margin-left: 8px;">Unspecified</span>
+            </div>
+            <div>
+              <strong style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase;">Starring:</strong>
+              <span id="details-cast" style="color: #FFFFFF; margin-left: 8px;">Unspecified</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+            <a href="#shows" class="btn btn-cinema btn-lg">
+              <i class="fa-solid fa-ticket"></i> Select Showtime & Book Seats
+            </a>
+            <div id="details-trailer-btn-wrapper"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showtimes Section -->
+  <section style="padding: 60px 0;" id="shows">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Select <span>Showtime</span></h2>
+          <p class="section-subtitle">Pick your preferred theatre, date, and showtime to book seats</p>
+        </div>
+      </div>
+
+      <!-- Date Selection Tabs -->
+      <div class="genre-pills" id="show-date-tabs" style="margin-bottom: 32px;">
+        <!-- Date tabs injected via shows.js -->
+      </div>
+
+      <!-- Theatres & Shows Container -->
+      <div id="theatres-shows-container">
+        <!-- Injected dynamically via shows.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none;">
+        <div>&copy; 2026 SHANMUKHA CINEVERSE Inc. Designed & Developed by Shanmukha Raju. All rights reserved.</div>
+        <div>Real-time MySQL Showings in Hyderabad & Kurnool</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/shows.js"></script>
+</body>
+</html>

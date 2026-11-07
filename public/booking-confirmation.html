@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmation – SHANMUKHA CINEVERSE</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printable-ticket, #printable-ticket * {
+        visibility: visible;
+      }
+      #printable-ticket {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+        border: 1px solid #CCCCCC !important;
+      }
+      #printable-ticket h2, #printable-ticket div, #printable-ticket span {
+        color: #000000 !important;
+      }
+      .ticket-stub {
+        background: #F4F4F5 !important;
+      }
+      .navbar, .footer, .btn {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-film"></i>
+        <span>SHANMUKHA</span> CINEVERSE
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="movies.html" class="nav-link">Movies</a></li>
+        <li><a href="theatres.html" class="nav-link">Theatres</a></li>
+        <li><a href="my-bookings.html" class="nav-link">My Bookings</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="my-bookings.html" class="btn btn-outline btn-sm">My Bookings</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Ticket Display Container -->
+  <section style="padding: 40px 0 80px;">
+    <div class="container" id="ticket-display-container">
+      <div style="text-align: center; padding: 60px 20px;">
+        <i class="fa-solid fa-spinner fa-spin" style="font-size: 2.5rem; color: var(--accent-violet);"></i>
+        <h3 style="margin-top: 16px;">Retrieving Ticket Pass...</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none;">
+        <div>&copy; 2026 SHANMUKHA CINEVERSE Inc. Designed & Developed by Shanmukha Raju. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/bookings.js"></script>
+</body>
+</html>

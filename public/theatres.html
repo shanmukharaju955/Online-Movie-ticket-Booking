@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theatres – SHANMUKHA CINEVERSE</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-film"></i>
+        <span>SHANMUKHA</span> CINEVERSE
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="movies.html" class="nav-link">Movies</a></li>
+        <li><a href="theatres.html" class="nav-link active">Theatres</a></li>
+        <li><a href="my-bookings.html" class="nav-link">My Bookings</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Theatres Content -->
+  <section style="padding: 50px 0;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Partner <span>Theatres</span></h1>
+          <p class="section-subtitle">Experience movies on the largest screens in Hyderabad & Kurnool</p>
+        </div>
+      </div>
+
+      <!-- City Filter Selector -->
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:30px; flex-wrap:wrap;">
+        <span style="font-weight:600; color:var(--text-secondary); font-size:0.9rem;">Select City:</span>
+        <button class="genre-pill theatre-city-pill active" data-city="All" onclick="renderTheatresCatalog('All')">
+          All Cities
+        </button>
+        <button class="genre-pill theatre-city-pill" data-city="Hyderabad" onclick="renderTheatresCatalog('Hyderabad')">
+          📍 Hyderabad
+        </button>
+        <button class="genre-pill theatre-city-pill" data-city="Kurnool" onclick="renderTheatresCatalog('Kurnool')">
+          📍 Kurnool
+        </button>
+      </div>
+
+      <div id="theatres-list-container">
+        <!-- Injected via shows.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none;">
+        <div>&copy; 2026 SHANMUKHA CINEVERSE Inc. Designed & Developed by Shanmukha Raju. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/shows.js"></script>
+</body>
+</html>

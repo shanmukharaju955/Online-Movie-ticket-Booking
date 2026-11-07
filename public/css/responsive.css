@@ -1,0 +1,166 @@
+/* ========================================================
+   CINEVERSE - Responsive Stylesheet (responsive.css)
+   ======================================================== */
+
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-meta, .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-synopsis {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .movie-details-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .movie-details-poster {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .movie-meta-chips {
+    justify-content: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-light);
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+    transform: translateY(-150%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .select-control {
+    width: 100%;
+  }
+
+  .cinema-hall-wrapper {
+    padding: 24px 12px;
+    overflow-x: auto;
+  }
+
+  .seats-layout {
+    min-width: 580px;
+  }
+
+  .booking-summary-bar {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .summary-details {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ticket-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-perforation {
+    display: none;
+  }
+
+  .ticket-stub {
+    border-left: none;
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-poster-card {
+    max-width: 260px;
+  }
+
+  .hero-poster-card img {
+    height: 380px;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .movie-info {
+    padding: 12px;
+  }
+
+  .movie-card-title {
+    font-size: 0.95rem;
+  }
+
+  .auth-card {
+    padding: 24px 18px;
+  }
+
+  .btn-lg {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+}
