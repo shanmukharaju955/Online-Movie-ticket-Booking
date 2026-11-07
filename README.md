@@ -210,7 +210,6 @@ Verify or edit the `.env` file in the root folder with your local MySQL credenti
 ```ini
 PORT=3000
 NODE_ENV=development
-SESSION_SECRET=cineverse_super_secret_session_key_2026_xyz
 
 DB_HOST=localhost
 DB_USER=root
@@ -311,7 +310,7 @@ The database comes pre-seeded with tested accounts. You can also click the **"1-
 3. Confirm the action. The status changes to **Cancelled**, and those seats are immediately released back into the available pool.
 
 ### 7. Admin Dashboard (`/admin.html`)
-1. Log in as `admin@cineverse.com` / `Admin@123`.
+1.
 2. View real-time analytics, revenue numbers, and box office leaders.
 3. Add a new movie or edit an existing one.
 4. Schedule a new screening in the **Show Schedules** tab.
