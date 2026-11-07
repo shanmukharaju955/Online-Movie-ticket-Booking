@@ -62,7 +62,9 @@ function initLoginForm() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        showToast(data.message || 'Login successful!', 'success');
+        const isAdmin = data.user && data.user.role === 'admin';
+        const roleLabel = isAdmin ? 'Administrator' : 'Customer';
+        showToast(`Welcome back, ${data.user.name} (${roleLabel})! Redirecting...`, 'success');
 
         // Check redirect query param
         const params = new URLSearchParams(window.location.search);
@@ -71,12 +73,12 @@ function initLoginForm() {
         setTimeout(() => {
           if (redirectUrl) {
             window.location.href = redirectUrl;
-          } else if (data.user && data.user.role === 'admin') {
+          } else if (isAdmin) {
             window.location.href = 'admin.html';
           } else {
             window.location.href = 'index.html';
           }
-        }, 800);
+        }, 700);
       } else {
         showToast(data.message || 'Login failed. Please check your credentials.', 'error');
       }

@@ -250,6 +250,13 @@ function renderAdminBookingsTable(bookings) {
   const container = document.getElementById('admin-bookings-table-body');
   if (!container) return;
 
+  // Calculate live bookings income from confirmed tickets
+  const totalIncome = bookings
+    .filter(b => b.booking_status === 'Confirmed')
+    .reduce((sum, b) => sum + (parseFloat(b.total_amount) || 0), 0);
+  const revEl = document.getElementById('filtered-bookings-revenue');
+  if (revEl) revEl.textContent = formatCurrency(totalIncome);
+
   if (bookings.length === 0) {
     container.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:30px;">No bookings found.</td></tr>`;
     return;
@@ -304,6 +311,11 @@ async function loadCustomersTable(search = '') {
 function renderAdminCustomersTable(customers) {
   const container = document.getElementById('admin-customers-table-body');
   if (!container) return;
+
+  // Calculate total customer lifetime spending
+  const totalSpentAll = customers.reduce((sum, c) => sum + (parseFloat(c.total_spent) || 0), 0);
+  const spentEl = document.getElementById('total-customers-spending');
+  if (spentEl) spentEl.textContent = formatCurrency(totalSpentAll);
 
   if (customers.length === 0) {
     container.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px;">No customers found.</td></tr>`;

@@ -258,13 +258,22 @@
           </div>
         </div>
 
-        <div class="admin-search-bar" style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <input type="text" id="admin-booking-search" class="form-input" placeholder="Search by booking reference, customer, or movie..." style="max-width: 380px;">
-          <select id="admin-booking-status-filter" class="select-control">
-            <option value="all">All Booking Statuses</option>
-            <option value="Confirmed">Confirmed</option>
-            <option value="Cancelled">Cancelled</option>
-          </select>
+        <div class="admin-search-bar" style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; flex: 1;">
+            <input type="text" id="admin-booking-search" class="form-input" placeholder="Search by booking reference, customer, or movie..." style="max-width: 380px;">
+            <select id="admin-booking-status-filter" class="select-control">
+              <option value="all">All Booking Statuses</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div style="background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 8px; padding: 6px 14px; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-sack-dollar" style="color: var(--accent-gold); font-size: 1.1rem;"></i>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Bookings Income</div>
+              <strong id="filtered-bookings-revenue" style="color: var(--accent-gold); font-size: 1.05rem;">$0.00</strong>
+            </div>
+          </div>
         </div>
 
         <div class="table-responsive">
@@ -299,8 +308,15 @@
           </div>
         </div>
 
-        <div class="admin-search-bar">
+        <div class="admin-search-bar" style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
           <input type="text" id="admin-customer-search" class="form-input" placeholder="Search customer by name, email..." style="max-width: 380px;">
+          <div style="background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 8px; padding: 6px 14px; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-wallet" style="color: var(--accent-violet); font-size: 1.1rem;"></i>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Customer Lifetime Spend</div>
+              <strong id="total-customers-spending" style="color: var(--accent-violet); font-size: 1.05rem;">$0.00</strong>
+            </div>
+          </div>
         </div>
 
         <div class="table-responsive">
@@ -317,7 +333,7 @@
               </tr>
             </thead>
             <tbody id="admin-customers-table-body">
-              <tr><td colspan="6" style="text-align: center; padding: 20px;">Loading customer records...</td></tr>
+              <tr><td colspan="7" style="text-align: center; padding: 20px;">Loading customer records...</td></tr>
             </tbody>
           </table>
         </div>
