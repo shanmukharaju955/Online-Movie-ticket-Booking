@@ -59,7 +59,7 @@ async function initSeatSelection() {
 }
 
 function renderShowHeader(show) {
-  document.title = `Select Seats - ${show.movie_title} | CINEVERSE`;
+  document.title = `Select Seats – ${show.movie_title} | SHANMUKHA CINEVERSE`;
 
   const titleElem = document.getElementById('seat-movie-title');
   if (titleElem) titleElem.textContent = show.movie_title;

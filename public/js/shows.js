@@ -55,7 +55,7 @@ async function initMovieDetails() {
 }
 
 function renderMovieDetails(movie) {
-  document.title = `${movie.title} - CINEVERSE`;
+  document.title = `${movie.title} – SHANMUKHA CINEVERSE`;
 
   const backdrop = document.getElementById('details-backdrop');
   if (backdrop) {
